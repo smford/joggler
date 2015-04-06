@@ -1,0 +1,21 @@
+Disabling O2 Joggler Updates on a Stock Install.
+===============================================
+
+1) Gain ssh access using:
+	http://www.stephenford.org/joggler/notes/howto_enable_ssh_access_on_stock_o2_joggler.txt
+	http://www.stephenford.org/joggler/files/joggler_enable_ssh_v0.1.zip
+
+2) Execute the following command:
+	echo "127.0.0.1 o2.openpeak.com o2.openpeak.co.uk"  >> /etc/hosts
+
+
+
+To enable updates again:
+	vi /etc/hosts
+
+and remove the following line:
+    127.0.0.1 o2.openpeak.com o2.openpeak.co.uk
+
+   
+- S. Ford 
+http://www.stephenford.org/joggler/notes/howto_disable_joggler_stock_o2_updating.txt

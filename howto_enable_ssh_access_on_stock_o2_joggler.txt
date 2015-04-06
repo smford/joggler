@@ -1,0 +1,35 @@
+How to Enable SSH on a stock O2 Joggler.
+========================================
+
+This script and associated files will install, configure and enable the SSH daemon
+upon boot of a base image install on an O2 Joggler updated as of 7pm 6 April 2010.
+
+Copy these files in to the root of a fat32 formated usb stick.  Plug usb stick in to
+your Joggler.  You should now be able to get root ssh access using the details below.
+The ssh daemon will start between reboots as this script patches the appropriate
+init.d script and comments out lines with the command "log_daemon_msg" which cause
+the rcS script to die (and thus not start sshd) when attempting to start S69boot.sshd.
+
+command: ssh letmeinssh@ip_of_joggler
+user = letmeinssh
+password = joggler1234
+
+This patch is compatible with any previous telnet patches you might have applied.
+
+This patch may take a minute or two to apply.  If it does not work reboot the joggler
+with the stick removed and try again.
+
+If you have already enabled telnet:
+Once you have figured out how to change your password, and confirmed the you
+can still login via ssh with the new password, it is recommended you disable
+telnet the proper way which will allow you in the future to re-enable it
+should ssh become broken, you would do this using the other enable telnet
+file found on this site.  I have not enabled telnet in this script because it is not
+neccessary when
+
+It is advised not to run this patch multiple times.  So after patching delete the
+patch files from your usb stick to prevent accidently running it again.
+
+http://www.stephenford.org/joggler/files/joggler_enable_ssh_v0.1.zip
+
+- S. Ford

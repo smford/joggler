@@ -1,0 +1,25 @@
+http://blog.sina.com.cn/s/blog_621fd9ef0100hcm3.html
+
+http://o2.openpeak.co.uk/firmware/app-o2flash-24514.8353-S2-f1-reimage.tgz
+
+tar xvfz app-o2flash-24514.8353-S2-f1-reimage.tgz
+
+tools/bin/partimage -z2 restore /dev/mmcblk0p2 payload/image.myg
+
+tools/bin/partimage -z2 restore /dev/mmcblk0p3 payload/image.myg
+
+mount /dev/mmcblk0p1 /mnt
+
+cp payload/vmlinux /mnt/vmlinux0
+
+cp payload/vmlinux /mnt/vmlinux1
+
+cd /mnt
+
+md5sum vmlinux0 >>sum0
+
+md5sum vmlinux1 >>sum1
+
+sed -i '3d' sum0
+
+sed -i '3d' sum1
